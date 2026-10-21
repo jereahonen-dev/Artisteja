@@ -3,35 +3,35 @@ package artisteja;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//import java.util.HashSet;
-//import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.boot.CommandLineRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
 
-//import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Bean;
 
-//import artisteja.domain.Application_user;
-//import artisteja.domain.Application_userRepository;
-//import artisteja.domain.Artisti;
-//import artisteja.domain.ArtistiRepository;
-//import artisteja.domain.Genre;
-//import artisteja.domain.GenreRepository;
-//import artisteja.domain.Label;
-//import artisteja.domain.LabelRepository;
+import artisteja.domain.Application_user;
+import artisteja.domain.Application_userRepository;
+import artisteja.domain.Artisti;
+import artisteja.domain.ArtistiRepository;
+import artisteja.domain.Genre;
+import artisteja.domain.GenreRepository;
+import artisteja.domain.Label;
+import artisteja.domain.LabelRepository;
 
 @SpringBootApplication
 public class ArtistejaApplication {
 
-	//private static final Logger log = LoggerFactory.getLogger(ArtistejaApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(ArtistejaApplication.class);
 
     public static void main(String[] args) {
 		SpringApplication.run(ArtistejaApplication.class, args);
 	}
 
- /*
+ 
 	@Bean
 	public CommandLineRunner demo(
 		Application_userRepository userRepo,
@@ -102,6 +102,6 @@ public class ArtistejaApplication {
 			}
 		}
 		};
-	}*/
+	}
 
 }
