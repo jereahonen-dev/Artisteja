@@ -39,9 +39,12 @@ public class ArtistejaApplication {
 		LabelRepository labelRepo) {
 		return (args) -> {
 
+			if (userRepo.count()==0) {
 			userRepo.save(new Application_user("admin", "$2a$12$s3spzn7imeVp5o0f6zv6AuDWSOjHJmdRRZXo8O0ibOiVcz2UAZtHi", "ADMIN"));
 			userRepo.save(new Application_user("user", "$2a$12$m3HNDX/8FOovrv8jvbWXneZXm5.yK4/SDMColosEVy.IBWCCUCBD6", "USER"));
+			}
 
+			if (labelRepo.count()==0){
 			Label spinefarm = labelRepo.save(new Label("Spinefarm", null));
 			Label nuclearBlast = labelRepo.save(new Label("Nuclear Blast", null));
 			Label atlantic = labelRepo.save(new Label("Atlantic", null));
@@ -96,6 +99,7 @@ public class ArtistejaApplication {
 			for (Artisti artisti : artRepo.findAll()) {
 				log.info(artisti.toString());
 			}
+		}
 		};
 	}
 
