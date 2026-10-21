@@ -30,7 +30,7 @@ public class ArtistejaApplication {
 		SpringApplication.run(ArtistejaApplication.class, args);
 	}
 
- 
+ /*
 	@Bean
 	public CommandLineRunner demo(
 		Application_userRepository userRepo,
@@ -101,6 +101,6 @@ public class ArtistejaApplication {
 			}
 		}
 		};
-	}
+	}*/
 
 }
