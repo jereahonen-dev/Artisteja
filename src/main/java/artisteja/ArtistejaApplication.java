@@ -7,8 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 
 import org.springframework.context.annotation.Bean;
@@ -25,7 +25,7 @@ import artisteja.domain.LabelRepository;
 @SpringBootApplication
 public class ArtistejaApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(ArtistejaApplication.class);
+	//private static final Logger log = LoggerFactory.getLogger(ArtistejaApplication.class);
 
     public static void main(String[] args) {
 		SpringApplication.run(ArtistejaApplication.class, args);
@@ -45,7 +45,7 @@ public class ArtistejaApplication {
 			userRepo.save(new Application_user("user", "$2a$12$m3HNDX/8FOovrv8jvbWXneZXm5.yK4/SDMColosEVy.IBWCCUCBD6", "USER"));
 			}
 
-			if (labelRepo.count()==0){
+			if (labelRepo.count()==0 && artRepo.count()==0 && genreRepo.count()==0){
 			Label spinefarm = labelRepo.save(new Label("Spinefarm", null));
 			Label nuclearBlast = labelRepo.save(new Label("Nuclear Blast", null));
 			Label atlantic = labelRepo.save(new Label("Atlantic", null));
@@ -96,10 +96,10 @@ public class ArtistejaApplication {
 			artRepo.save(pilots21);
 			artRepo.save(acdc);
 
-			log.info("fetch all artist");
+			/*log.info("fetch all artist");
 			for (Artisti artisti : artRepo.findAll()) {
 				log.info(artisti.toString());
-			}
+			}*/
 		}
 		};
 	}

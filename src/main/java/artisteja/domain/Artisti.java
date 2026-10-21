@@ -37,7 +37,7 @@ public class Artisti {
     @JoinTable(
         name = "label_signed",
         joinColumns = @JoinColumn(name="id"),
-        inverseJoinColumns = @JoinColumn(name = "lablelid"))
+        inverseJoinColumns = @JoinColumn(name = "labelid"))
     private Set<Label> signedLabel;
 
     public Artisti() {
