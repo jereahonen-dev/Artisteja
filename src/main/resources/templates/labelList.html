@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<head>
+    <title>Artisteja</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1>Labels</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Artists</th>
+        <th>Functions</th>
+    </tr>
+    <tr th:each="label : ${labels}">
+        <td th:text="${label.name}"></td>
+        <td>
+            <span th:each="artist : ${label.signed}" th:text="${artist.name + ' | '}"></span>
+            </td>
+        <td><a th:href="@{/editLabel/{id}(id=${label.labelid})}" class="btn btn-secondary">Edit</a>
+            <a th:href="@{/deleteLabel/{id}(id=${label.labelid})}" class="btn btn-danger">Delete</a></td>
+    </tr>
+</table>
+<a th:href="@{/addLabel}" class="btn btn-success">Add Label</a>
+<a th:href="@{/artistList}" class="btn btn-secondary">Artists</a>
+</body>

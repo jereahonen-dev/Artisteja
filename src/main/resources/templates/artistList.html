@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<head>
+    <title>Artisteja</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+	<div>
+		<h1>Artists</h1>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+		<span sec:authentication="name">Name</span>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+	 	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign out" class="btn btn-sm btn-danger"/>
+	 	</form>
+	 </div>
+</div>
+    <table class="table table-striped">
+		<tr>
+		    <th>Artist</th>
+		    <th>Country</th>
+			<th>Genre</th>
+            <th>Founded</th>
+            <th>Labels</th>
+			<th>Functions</th>
+		</tr>
+    	<tr th:each = "artist : ${artists}">
+    		<td th:text="${artist.name}"></td>
+			<td th:text="${artist.country}"></td>
+			<td th:text="${artist.genre == null ? 'No genre' : artist.genre.name}"></td>
+			<td th:text="${artist.founded}"></td>
+			<td><span th:each="label : ${artist.signedLabel}" th:text="${label.name + ' | '}">
+			</span>
+			</td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${artist.id})}" class="btn btn-danger">Delete</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editArtist/{id}(id=${artist.id})}" class="btn btn-secondary">Edit</a></td>
+    	</tr>
+     </table>
+	 <div padding="20px" margin="25px 25px">
+	 	<a th:href="@{/labelList}" class="btn btn-success">Labels</a>
+	 	<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/add}" class="btn btn-success">Add Artist</a>
+		<a sec:autorize="hasAuthority('ADMIN')" th:href="@{/addLabel}" class="btn btn-success">Add Label</a>
+	</div>
+</body>
+</html>
