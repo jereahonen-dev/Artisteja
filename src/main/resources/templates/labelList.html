@@ -9,22 +9,29 @@
 <body>
 
 <h1>Labels</h1>
-
+<div class="col-md-4" style="padding:20px 0">
+		<span sec:authentication="name">Name</span>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+	 	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign out" class="btn btn-sm btn-danger"/>
+	 	</form>
+	 </div>
 <table class="table table-striped">
     <tr>
         <th>Name</th>
         <th>Artists</th>
-        <th>Functions</th>
+        <th sec:authorize="hasAuthority('ADMIN')">Functions</th>
     </tr>
     <tr th:each="label : ${labels}">
         <td th:text="${label.name}"></td>
         <td>
             <span th:each="artist : ${label.signed}" th:text="${artist.name + ' | '}"></span>
             </td>
-        <td><a th:href="@{/editLabel/{id}(id=${label.labelid})}" class="btn btn-secondary">Edit</a>
+        <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editLabel/{id}(id=${label.labelid})}" class="btn btn-secondary">Edit</a>
             <a th:href="@{/deleteLabel/{id}(id=${label.labelid})}" class="btn btn-danger">Delete</a></td>
     </tr>
 </table>
-<a th:href="@{/addLabel}" class="btn btn-success">Add Label</a>
+<div sec:authorize="hasAuthority('ADMIN')"> <a th:href="@{/addLabel}" class="btn btn-success">Add Label</a></div>
 <a th:href="@{/artistList}" class="btn btn-secondary">Artists</a>
 </body>
