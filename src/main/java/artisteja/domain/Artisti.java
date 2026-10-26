@@ -20,7 +20,7 @@ import jakarta.validation.constraints.Min;
 public class Artisti {
 
     @Id 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String country;

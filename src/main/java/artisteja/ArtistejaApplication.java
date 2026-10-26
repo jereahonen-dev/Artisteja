@@ -25,7 +25,7 @@ import artisteja.domain.LabelRepository;
 @SpringBootApplication
 public class ArtistejaApplication {
 
-	//private static final Logger log = LoggerFactory.getLogger(ArtistejaApplication.class);
+//	private static final Logger log = LoggerFactory.getLogger(ArtistejaApplication.class);
 
     public static void main(String[] args) {
 		SpringApplication.run(ArtistejaApplication.class, args);
@@ -95,8 +95,8 @@ public class ArtistejaApplication {
 			artRepo.save(nightwish);
 			artRepo.save(pilots21);
 			artRepo.save(acdc);
-
-			/*log.info("fetch all artist");
+/* 
+			log.info("fetch all artist");
 			for (Artisti artisti : artRepo.findAll()) {
 				log.info(artisti.toString());
 			}*/
