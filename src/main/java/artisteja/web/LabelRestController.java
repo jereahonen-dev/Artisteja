@@ -37,7 +37,6 @@ public class LabelRestController {
         return labelRepo.findById(id).orElseThrow();
     }
     
-    
     @PostMapping
     public Label saveLabel(@RequestBody Label label) {
         return labelRepo.save(label);

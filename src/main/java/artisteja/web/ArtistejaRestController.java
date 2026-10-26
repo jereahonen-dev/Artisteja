@@ -40,7 +40,6 @@ public class ArtistejaRestController {
         return artRepo.findById(id).orElseThrow();
     }
     
-    
     @PostMapping
     public Artisti saveArtist(@RequestBody Artisti artisti) {
         return artRepo.save(artisti);
