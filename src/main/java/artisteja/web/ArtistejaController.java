@@ -56,7 +56,7 @@ public class ArtistejaController {
         model.addAttribute("artist", new Artisti());
         model.addAttribute("genres", genRepo.findAll());
         model.addAttribute("labels", labelRepo.findAll());
-        return "/addArtist";
+        return "addArtist";
     }
     
     @PostMapping("/saveArtist")
@@ -109,7 +109,7 @@ public class ArtistejaController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public String addLabel(Model model) {
         model.addAttribute("label", new Label());
-        return "/labelForm";
+        return "labelForm";
     }
     
     @GetMapping("/editLabel/{id}")
